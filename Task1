@@ -7,7 +7,7 @@ df.head()
 df.isnull().sum()    #Checking the missing values before filling
 df["Age"].fillna(df["Age"].median(), inplace=True)
 df["Embarked"].fillna(df["Embarked"].mode()[0], inplace=True)
-df.isnull().sum()    #Checking the missing values after filling
+df.isnull().sum()
 from sklearn.preprocessing import LabelEncoder
 label_enc = LabelEncoder()
 df["Sex"] = label_enc.fit_transform(df["Sex"])
@@ -16,5 +16,8 @@ df.head()
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 df[["Age", "Fare"]] = scaler.fit_transform(df[["Age", "Fare"]])
+df.head()
 df.to_csv("titanic_cleaned.csv", index=False)
-print("Cleaned data saved to 'titanic_cleaned.csv'")
+print(" Cleaned data saved to 'titanic_cleaned.csv'")
+
+
